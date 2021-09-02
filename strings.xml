@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">GUI Elements</string>
+    <string name="greeting_text">Hello Saloni!</string>
+    <string name="increment">New Animal</string>
+    <string name="decrement">Previous Animal</string>
+    <string name="Beginning">You should get a" "</string>
+    <string name="End">" "as a pet!</string>
+    <string name="name_entry">Please enter your name:</string>
+    <string name="name_sent">Submit Name</string>
+    <string name="hi">\"Hi \"</string>
+    <string-array name="animal_array">
+        <item><b>Dog</b></item>
+        <item><b>Cat</b></item>
+        <item><b>Bird</b></item>
+        <item><b>Snake</b></item>
+        <item><b>Turtle</b></item>
+    </string-array>
+</resources>
