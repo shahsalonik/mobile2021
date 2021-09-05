@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Pet Suggester</string>
+    <string name="greeting_text">Hi Saloni!</string>
+    <string name="increment" >Next pet, please</string>
+    <string name="decrement">Take me back!</string>
+    <string name="name_sent">submit name</string>
+    <string name="name_entry">Please enter your name:</string>
+    <string name="submit_name">submit name</string>
+    <string-array name="animal_array">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Snake</item>
+        <item>Hamster</item>
+        <item>Turtle</item>
+    </string-array>
+</resources>
