@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">Layouts</string>
+    <string name="layout_3_text">Layout 3</string>
+    <string name="checkbox_text">*Check* this out</string>
+    <string name="layout7_btn_txt">Cool Btn :)</string>
+    <string name="intro_screen">Click to cycle through layouts!</string>
+    <string name="end_screen_text">You made it! You should get a cookie :)</string>
+    <string name="long_text">
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+why did the programmer have glasses? because he couldn\'t c#
+ </string>
+    <string name="layout_4_txt">Layout 4</string>
+    <string name="layout_7_txt">Layout 7</string>
+    <string name="hello_lay1_txt">Hello</string>
+    <string name="bonjour_lay1_txt">Bonjour</string>
+    <string name="ciao_lay1_txt">Ciao</string>
+    <string name="hola_lay1_txt">¡Hola!</string>
+    <string name="centered_lay2_txt">Centered</string>
+    <string name="left_lay2_txt">Left</string>
+    <string name="right_lay2_txt">Right</string>
+    <string name="layout_3_txt">Layout 3</string>
+    <string name="lay3_btn_txt">A pretty cool button</string>
+    <string name="hello_middle">Hello, middle!</string>
+    <string name="hello_from_the_bottom">Hello from the bottom!</string>
+    <string name="button_lay6">Button</string>
+
+</resources>

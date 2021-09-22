@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/top_left"
+        android:layout_width="@dimen/bigger_btn"
+        android:layout_height="@dimen/bigger_btn"
+        android:background="@color/pastel_green"
+        android:text="@string/hello_lay1_txt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/top_right"
+        android:layout_width="@dimen/bigger_btn"
+        android:layout_height="@dimen/bigger_btn"
+        android:background="@color/pastel_green"
+        android:text="@string/bonjour_lay1_txt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bottom_left"
+        android:layout_width="@dimen/bigger_btn"
+        android:layout_height="@dimen/bigger_btn"
+        android:background="@color/pastel_green"
+        android:text="@string/ciao_lay1_txt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="nextPage"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bottom_right"
+        android:layout_width="@dimen/bigger_btn"
+        android:layout_height="@dimen/bigger_btn"
+        android:background="@color/pastel_green"
+        android:text="@string/hola_lay1_txt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
