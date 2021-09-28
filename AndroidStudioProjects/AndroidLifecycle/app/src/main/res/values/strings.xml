@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Android Lifecycle</string>
+    <string name="lifetime_count">Lifetime</string>
+    <string name="this_run">This Run</string>
+    <string name="lifetime_btn">Delete Lifetime </string>
+    <string name="current_btn">Delete Current </string>
 </resources>
