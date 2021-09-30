@@ -24,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
     int countonRestart = 0;
     int countonDestroy = 0;
 
+    int lifecountonCreate = 0;
+    int lifecountonStart = 0;
+    int lifecountonResume = 0;
+    int lifecountonPause = 0;
+    int lifecountonStop = 0;
+    int lifecountonRestart = 0;
+    int lifecountonDestroy = 0;
+
     String TAG = "com.shahsaloni.demo.androidlifecycle";
 
     @Override
@@ -35,11 +43,13 @@ public class MainActivity extends AppCompatActivity {
         lifetimeBtn = findViewById(R.id.lifetime_btn);
         currentBtn = findViewById(R.id.current_btn);
         sharedPreferences = getSharedPreferences(TAG, MODE_PRIVATE);
+        setInitialValues();
         editor = sharedPreferences.edit();
+        lifecountonCreate++;
         countonCreate++;
         storeValues();
-        setInitialValues();
         setCurrentViewText();
+        setLifetimeViewText();
 
         lifetimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 "onStop: " + countonStop + "\n" +
                 "onRestart: " + countonRestart + "\n" +
                 "onDestroy: " + countonDestroy + "\n"
-
         );
 
 
@@ -76,10 +85,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void setLifetimeViewText() {
 
+        lifetime.setText(
+                "Lifetime\n\n" +
+                        "onCreate: " + lifecountonCreate + "\n" +
+                        "onStart: " + lifecountonStart + "\n" +
+                        "onResume: " + lifecountonResume + "\n" +
+                        "onPause: " + lifecountonPause + "\n" +
+                        "onStop: " + lifecountonStop + "\n" +
+                        "onRestart: " + lifecountonRestart + "\n" +
+                        "onDestroy: " + lifecountonDestroy + "\n"
+        );
 
     }
 
     private void eraseCurrentValues() {
+
         countonCreate = 0;
         countonStart = 0;
         countonResume = 0;
@@ -94,37 +114,48 @@ public class MainActivity extends AppCompatActivity {
 
     private void eraseLifetimeValues() {
 
+        lifecountonCreate = 0;
+        lifecountonStart = 0;
+        lifecountonResume = 0;
+        lifecountonPause = 0;
+        lifecountonStop = 0;
+        lifecountonRestart = 0;
+        lifecountonDestroy = 0;
+        editor.clear();
+        editor.apply();
+        setLifetimeViewText();
+
     }
 
     private void setInitialValues() {
-
-        countonCreate = sharedPreferences.getInt("onCreate", 0);
-        countonStart = sharedPreferences.getInt("onStart", 0);
-        countonResume = sharedPreferences.getInt("onResume", 0);
-        countonPause = sharedPreferences.getInt("onPause", 0);
-        countonStop = sharedPreferences.getInt("onStop", 0);
-        countonRestart = sharedPreferences.getInt("onRestart", 0);
-        countonDestroy = sharedPreferences.getInt("onDestroy", 0);
+        lifecountonCreate = sharedPreferences.getInt("onCreate", 0);
+        lifecountonStart = sharedPreferences.getInt("onStart", 0);
+        lifecountonResume = sharedPreferences.getInt("onResume", 0);
+        lifecountonPause = sharedPreferences.getInt("onPause", 0);
+        lifecountonStop = sharedPreferences.getInt("onStop", 0);
+        lifecountonRestart = sharedPreferences.getInt("onRestart", 0);
+        lifecountonDestroy = sharedPreferences.getInt("onDestroy", 0);
+        setLifetimeViewText();
     }
 
     private void storeValues() {
-        editor.putInt("onCreate", countonCreate);
-        editor.putInt("onStart", countonStart);
-        editor.putInt("onResume", countonResume);
-        editor.putInt("onPause", countonPause);
-        editor.putInt("onStop", countonStop);
-        editor.putInt("onRestart", countonRestart);
-        editor.putInt("onDestroy", countonDestroy);
+        editor.putInt("onCreate", lifecountonCreate);
+        editor.putInt("onStart", lifecountonStart);
+        editor.putInt("onResume", lifecountonResume);
+        editor.putInt("onPause", lifecountonPause);
+        editor.putInt("onStop", lifecountonStop);
+        editor.putInt("onRestart", lifecountonRestart);
+        editor.putInt("onDestroy", lifecountonDestroy);
         editor.apply();
+        setLifetimeViewText();
         setCurrentViewText();
-
     }
-
 
     @Override
     protected void onStart() {
         super.onStart();
         countonStart++;
+        lifecountonStart++;
         storeValues();
     }
 
@@ -132,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         countonResume++;
+        lifecountonResume++;
         storeValues();
     }
 
@@ -139,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         countonPause++;
+        lifecountonPause++;
         storeValues();
     }
 
@@ -146,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         countonStop++;
+        lifecountonStop++;
         storeValues();
     }
 
@@ -153,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         countonRestart++;
+        lifecountonRestart++;
         storeValues();
     }
 
@@ -160,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         countonDestroy++;
+        lifecountonDestroy++;
         storeValues();
     }
 
