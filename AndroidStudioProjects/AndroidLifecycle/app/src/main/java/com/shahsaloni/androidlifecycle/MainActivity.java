@@ -198,8 +198,5 @@ public class MainActivity extends AppCompatActivity {
         lifecountonDestroy++;
         storeValues();
     }
-
-
-
 }
 
