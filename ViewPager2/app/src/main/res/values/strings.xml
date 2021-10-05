@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ViewPager2</string>
+    <string-array name="cities">
+        <item>Alexandria, VA</item>
+        <item>Washington, D.C.</item>
+        <item>New York City, NY</item>
+        <item>London, England</item>
+        <item>Paris, France</item>
+    </string-array>
 </resources>

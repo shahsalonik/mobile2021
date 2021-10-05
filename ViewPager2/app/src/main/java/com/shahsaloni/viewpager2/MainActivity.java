@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            return MainFragment.newInstance(mViewPager2);
+            return MainFragment.newInstance(mViewPager2, position);
         }
 
         @Override
