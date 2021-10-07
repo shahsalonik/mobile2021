@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">ViewPager2</string>
+    <string name="app_name">Weather Predictor</string>
     <string-array name="cities">
         <item>Alexandria, VA</item>
         <item>Washington, D.C.</item>
         <item>New York City, NY</item>
         <item>London, England</item>
         <item>Paris, France</item>
+        <item>Los Angeles, CA</item>
     </string-array>
 </resources>
