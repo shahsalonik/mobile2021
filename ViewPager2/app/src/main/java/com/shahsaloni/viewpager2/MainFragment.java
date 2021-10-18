@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,10 +45,10 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Resources res = getResources();
-        String[] cities = res.getStringArray(R.array.cities);
+        String[] days = res.getStringArray(R.array.days);
         TabLayout tabLayout = getActivity().findViewById(R.id.tab_layout);
         new TabLayoutMediator(tabLayout, mViewPager2,
-                (tab, position) -> tab.setText(cities[position])
+                (tab, position) -> tab.setText(days[position])
         ).attach();
     }
 }

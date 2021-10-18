@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     ViewPager2 mViewPager2;
     RecyclerView.Adapter mMyFragmentStateAdapter;
-    int NUM_ITEMS = 6;
+    int NUM_ITEMS = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         mMyFragmentStateAdapter = new MyFragmentStateAdapter(this);
         mViewPager2.setAdapter(mMyFragmentStateAdapter);
     }
+
+
 
     private class MyFragmentStateAdapter extends FragmentStateAdapter {
 
