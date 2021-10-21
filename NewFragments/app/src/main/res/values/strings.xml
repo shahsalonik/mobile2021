@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NewFragments</string>
+    <string name="triviaQ">What is the painting “La Gioconda” more usually known as?</string>
+    <string name="correct_ans">The Mona Lisa</string>
+    <string name="wrong1_ans">Guernica</string>
+    <string name="wrong2_ans">The Birth of Venus</string>
+    <string name="wrong3_ans">The Starry Night</string>
+    <string name="good_job">Good Job!</string>
+    <string name="wrong_ans">Good luck next time</string>
+    <string name="thanks">Thanks for playing!</string>
+</resources>
