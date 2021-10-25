@@ -9,6 +9,7 @@
         android:text="@string/correct_ans"
         android:layout_width="110sp"
         android:layout_height="100sp"
+        android:onClick="correctclick"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias=".25"
@@ -19,6 +20,7 @@
         android:text="@string/wrong1_ans"
         android:layout_width="110sp"
         android:layout_height="100sp"
+        android:onClick="wrongclick"
         app:layout_constraintLeft_toRightOf="@id/correct"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -28,6 +30,7 @@
         android:text="@string/wrong2_ans"
         android:layout_width="110sp"
         android:layout_height="100sp"
+        android:onClick="wrongclick"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias=".25"
@@ -38,6 +41,7 @@
         android:text="@string/wrong3_ans"
         android:layout_width="110sp"
         android:layout_height="100sp"
+        android:onClick="wrongclick"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/wrong2"
         app:layout_constraintTop_toBottomOf="@id/wrong1"/>
