@@ -17,7 +17,7 @@ public class Sprite extends RectF {
     }
 
     public Sprite(float left, float top, float right, float bottom) {
-        this(left, top, right, bottom, 1, 2, Color.MAGENTA);
+        this(left, top, right, bottom, 11, 12, Color.MAGENTA);
     }
 
     public Sprite(int dX, int dY, int color) {
@@ -25,7 +25,11 @@ public class Sprite extends RectF {
     }
 
     public Sprite() {
-        this(2, 3, Color.GREEN);
+        this(12, 13, Color.GREEN);
+    }
+
+    public Sprite(String i) {
+        super();
     }
 
     public void update() {

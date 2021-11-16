@@ -21,7 +21,7 @@ public class DrawView extends View {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         sprite = new Sprite();
-        sprite2 = new Sprite(300, 100, 400, 210,-2, 3, Color.BLUE);
+        sprite2 = new Sprite(300, 100, 400, 210,-12, 13, Color.BLUE);
     }
 
     public DrawView(Context context, @Nullable AttributeSet attrs) {
@@ -50,28 +50,36 @@ public class DrawView extends View {
 
         if(sprite.intersects(0, 0, 50, getHeight())) {
             sprite.setdX(-(sprite.getdX()));
+            sprite.setColor(Color.YELLOW);
         }
         if(sprite.intersects(0, 0, getWidth(), 50)) {
             sprite.setdY(-(sprite.getdY()));
+            sprite.setColor(Color.CYAN);
         }
         if(sprite.intersects(getWidth() - 50, 0, getWidth(), getHeight())) {
             sprite.setdX(-(sprite.getdX()));
+            sprite.setColor(Color.BLACK);
         }
         if(sprite.intersects(0, getHeight() - 50, getWidth(), getHeight())) {
             sprite.setdY(-(sprite.getdY()));
+            sprite.setColor(Color.BLUE);
         }
 
         if(sprite2.intersects(0, 0, 50, getHeight())) {
             sprite2.setdX(-(sprite2.getdX()));
+            sprite2.setColor(Color.RED);
         }
         if(sprite2.intersects(0, 0, getWidth(), 50)) {
             sprite2.setdY(-(sprite2.getdY()));
+            sprite2.setColor(Color.GREEN);
         }
         if(sprite2.intersects(getWidth() - 50, 0, getWidth(), getHeight())) {
             sprite2.setdX(-(sprite2.getdX()));
+            sprite2.setColor(Color.LTGRAY);
         }
         if(sprite2.intersects(0, getHeight() - 50, getWidth(), getHeight())) {
             sprite2.setdY(-(sprite2.getdY()));
+            sprite2.setColor(Color.MAGENTA);
         }
 
         invalidate();
