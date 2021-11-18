@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -17,11 +16,13 @@ public class DrawView extends View {
     Sprite sprite = new Sprite();
     Sprite sprite2 = new Sprite(300, 100, 400, 210,-2, 3, Color.BLUE);
 
+
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         sprite = new Sprite();
         sprite2 = new Sprite(300, 100, 400, 210,-12, 13, Color.BLUE);
+
     }
 
     public DrawView(Context context, @Nullable AttributeSet attrs) {
@@ -43,46 +44,52 @@ public class DrawView extends View {
         canvas.drawRect(getWidth() - 50, 0, getWidth(), getHeight(), p);
         canvas.drawRect(0, getHeight() - 50, getWidth(), getHeight(), p);
 
-        if(intersects(sprite, sprite2)) {
-            sprite2.setdY(-(sprite2.getdY()));
-            sprite.setdY(-(sprite.getdY()));
-        }
-
-        if(sprite.intersects(0, 0, 50, getHeight())) {
-            sprite.setdX(-(sprite.getdX()));
-            sprite.setColor(Color.YELLOW);
-        }
-        if(sprite.intersects(0, 0, getWidth(), 50)) {
-            sprite.setdY(-(sprite.getdY()));
-            sprite.setColor(Color.CYAN);
-        }
-        if(sprite.intersects(getWidth() - 50, 0, getWidth(), getHeight())) {
-            sprite.setdX(-(sprite.getdX()));
-            sprite.setColor(Color.BLACK);
-        }
-        if(sprite.intersects(0, getHeight() - 50, getWidth(), getHeight())) {
-            sprite.setdY(-(sprite.getdY()));
-            sprite.setColor(Color.BLUE);
-        }
-
-        if(sprite2.intersects(0, 0, 50, getHeight())) {
-            sprite2.setdX(-(sprite2.getdX()));
-            sprite2.setColor(Color.RED);
-        }
-        if(sprite2.intersects(0, 0, getWidth(), 50)) {
-            sprite2.setdY(-(sprite2.getdY()));
-            sprite2.setColor(Color.GREEN);
-        }
-        if(sprite2.intersects(getWidth() - 50, 0, getWidth(), getHeight())) {
-            sprite2.setdX(-(sprite2.getdX()));
-            sprite2.setColor(Color.LTGRAY);
-        }
-        if(sprite2.intersects(0, getHeight() - 50, getWidth(), getHeight())) {
-            sprite2.setdY(-(sprite2.getdY()));
-            sprite2.setColor(Color.MAGENTA);
-        }
+        twoSpriteIntersection(sprite, sprite2);
 
         invalidate();
+    }
+
+    public void twoSpriteIntersection(Sprite s1, Sprite s2) {
+
+        if(intersects(s1, s2)) {
+            s2.setdY(-(s2.getdY()));
+            s1.setdY(-(s1.getdY()));
+        }
+
+        if(s1.intersects(0, 0, 50, getHeight())) {
+            s1.setdX(-(s1.getdX()));
+            s1.setColor(Color.YELLOW);
+        }
+        if(s1.intersects(0, 0, getWidth(), 50)) {
+            s1.setdY(-(s1.getdY()));
+            s1.setColor(Color.CYAN);
+        }
+        if(s1.intersects(getWidth() - 50, 0, getWidth(), getHeight())) {
+            s1.setdX(-(s1.getdX()));
+            s1.setColor(Color.BLACK);
+        }
+        if(s1.intersects(0, getHeight() - 50, getWidth(), getHeight())) {
+            s1.setdY(-(s1.getdY()));
+            s1.setColor(Color.BLUE);
+        }
+
+        if(s2.intersects(0, 0, 50, getHeight())) {
+            s2.setdX(-(s2.getdX()));
+            s2.setColor(Color.RED);
+        }
+        if(s2.intersects(0, 0, getWidth(), 50)) {
+            s2.setdY(-(s2.getdY()));
+            s2.setColor(Color.GREEN);
+        }
+        if(s2.intersects(getWidth() - 50, 0, getWidth(), getHeight())) {
+            s2.setdX(-(s2.getdX()));
+            s2.setColor(Color.LTGRAY);
+        }
+        if(s2.intersects(0, getHeight() - 50, getWidth(), getHeight())) {
+            s2.setdY(-(s2.getdY()));
+            s2.setColor(Color.MAGENTA);
+        }
+
     }
 
 

@@ -28,10 +28,6 @@ public class Sprite extends RectF {
         this(12, 13, Color.GREEN);
     }
 
-    public Sprite(String i) {
-        super();
-    }
-
     public void update() {
         offset(dX, dY);
     }
