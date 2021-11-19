@@ -3,6 +3,8 @@ package com.shahsaloni.sprites;
 import static android.graphics.RectF.intersects;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,27 +17,31 @@ public class DrawView extends View {
 
     Sprite sprite = new Sprite();
     Sprite sprite2 = new Sprite(300, 100, 400, 210,-2, 3, Color.BLUE);
-
+    Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.bluejeans);
+    Sprite bitmap = new Sprite();
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         sprite = new Sprite();
         sprite2 = new Sprite(300, 100, 400, 210,-12, 13, Color.BLUE);
-
+        bitmap = new Sprite();
     }
 
     public DrawView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        bitmap.setBitmap(bm);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        sprite.update();
-        sprite2.update();
+        sprite.update(canvas);
+        sprite2.update(canvas);
+        bitmap.update(canvas);
         sprite.draw(canvas);
         sprite2.draw(canvas);
+        bitmap.draw(canvas);
 
         Paint p = new Paint();
         p.setColor(Color.BLACK);

@@ -1,13 +1,19 @@
 package com.shahsaloni.sprites;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 
 public class Sprite extends RectF {
 
-    private int dX, dY, color;
+    private int dX, dY, color, currentFrame = 0, iconWidth, iconHeight;
+    private Bitmap bitmap;
+    private static final int BMP_COLUMNS = 4;
+    private static final int BMP_ROWS = 4;
+    private static final int DOWN = 0, LEFT = 1, RIGHT = 2, UP = 3;
 
     public Sprite(float left, float top, float right, float bottom, int dX, int dY, int color) {
         super(left, top, right, bottom);
@@ -28,15 +34,57 @@ public class Sprite extends RectF {
         this(12, 13, Color.GREEN);
     }
 
-    public void update() {
+    public Sprite(Bitmap bm) {
+        this(12, 13, Color.GREEN);
+        bitmap = bm;
+    }
+
+    public void update(Canvas canvas) {
+        if(left + dX < 0 || right + dX > canvas.getWidth()) {
+            dX =- 1;
+        }
+        if(top + dY > canvas.getHeight()) {
+            offsetTo(left, -height());
+        }
+        if(bottom + dY < 0) {
+            offset(left, canvas.getHeight());
+        }
         offset(dX, dY);
     }
 
     public void draw(Canvas canvas) {
-        Paint paint = new Paint();
-        paint.setColor(color);
-        canvas.drawCircle(centerX(), centerY(), width()/2, paint);
+        if(bitmap == null) {
+            Paint paint = new Paint();
+            paint.setColor(color);
+            canvas.drawCircle(centerX(), centerY(), width() / 2, paint);
+        }
+        else {
+            iconWidth = bitmap.getWidth();
+            iconHeight = bitmap.getHeight();
+            int srcX = currentFrame * iconWidth;
+            int srcY = getAnimationRow() * iconHeight;
+            Rect src = new Rect(srcX, srcY, srcX + iconWidth, srcY + iconHeight);
+            canvas.drawBitmap(bitmap, src, this, null);
+        }
     }
+
+    private int getAnimationRow() {
+        if(Math.abs(dX) > Math.abs(dY)) {
+            if(Math.abs(dX) == dX) {
+                return RIGHT;
+            }
+            else {
+                return LEFT;
+            }
+        }
+        else if(Math.abs(dY) == dY) {
+            return DOWN;
+        }
+        else {
+            return UP;
+        }
+    }
+
 
     public int getdX() {
         return dX;
@@ -61,4 +109,18 @@ public class Sprite extends RectF {
     public void setColor(int color) {
         this.color = color;
     }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap b) {
+        bitmap = b;
+    }
+
+    public void grow(int i) {
+        right += i;
+        bottom += i;
+    }
+
 }
