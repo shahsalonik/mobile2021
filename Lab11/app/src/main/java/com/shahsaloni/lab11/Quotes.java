@@ -1,5 +1,7 @@
 package com.shahsaloni.lab11;
 
+import org.json.JSONObject;
+
 public class Quotes {
     private String quote, author;
 

@@ -2,10 +2,12 @@ package com.shahsaloni.lab11;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     RequestQueue requestQueue;
+    AppCompatButton button;
     String url = "https://api.quotable.io/random";
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -37,32 +40,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text);
+        button = findViewById(R.id.nextButton);
         List<Quotes> quotes = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject object = new JSONObject(response);
-                    JSONArray array = object.getJSONArray("");
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject object1 = array.getJSONObject(i);
-                        String content = object1.getString("content");
-                        String author = object1.getString("author");
-                        quotes.add(new Quotes(content, author));
+            public void onClick(View v) {
+                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        int contentIndex = response.indexOf("content");
+                        int authorIndex = response.indexOf("\"author\"");
+                        String content = response.substring(contentIndex + 10, authorIndex - 2);
+                        String author = response.substring(authorIndex + 10, response.indexOf(",", authorIndex) - 1);
+                        String finalQuote = content + "\n- " + author;
+                        textView.setText(finalQuote);
                     }
-                    textView.setText("Quote: " + quotes.get(0).getQuote() + " \n\t\t- " + quotes.get(0).getAuthor());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("error", error.toString());
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("error", error.toString());
+                    }
+                });
+                requestQueue.add(request);
             }
         });
-        requestQueue.add(request);
     }
+
 
 }

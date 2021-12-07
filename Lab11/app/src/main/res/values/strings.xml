@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Quote Generator</string>
+    <string name="next_quote">Next Quote</string>
+    <string name="instructions">Welcome to the Quote Generator!\nClick the button to get started.</string>
 </resources>
