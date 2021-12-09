@@ -26,4 +26,11 @@ public class Quotes {
         this.author = author;
     }
 
+    @Override
+    public String toString() {
+        return "Quotes{" +
+                "quote='" + quote + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }

@@ -39,10 +39,26 @@
         android:layout_height="50dp"
         android:textColor="@color/black"
         android:text="@string/next_quote"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/vertical1"
         app:layout_constraintRight_toRightOf="@id/vertical2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".9"/>
+        app:layout_constraintVertical_bias=".85"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/likButton"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:text="@string/like"
+        android:textSize="10sp"
+        android:background="@color/teal_200"
+        android:onClick="addQuote"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/vertical1"
+        app:layout_constraintRight_toRightOf="@id/vertical2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".93"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

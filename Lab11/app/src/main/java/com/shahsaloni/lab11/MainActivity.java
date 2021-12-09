@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,14 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     RequestQueue requestQueue;
     AppCompatButton button;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     String url = "https://api.quotable.io/random";
+    String content, author;
+    List<String> likeList = new ArrayList<>();
+    int count = 0;
+
+    String TAG = "com.shahsaloni.lab11";
 
     @RequiresApi(api = Build.VERSION_CODES.N)
 
@@ -43,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.nextButton);
         List<Quotes> quotes = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
+        sharedPreferences = getSharedPreferences(TAG, MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         int contentIndex = response.indexOf("content");
                         int authorIndex = response.indexOf("\"author\"");
-                        String content = response.substring(contentIndex + 10, authorIndex - 2);
-                        String author = response.substring(authorIndex + 10, response.indexOf(",", authorIndex) - 1);
+                        content = response.substring(contentIndex + 10, authorIndex - 2);
+                        author = response.substring(authorIndex + 10, response.indexOf(",", authorIndex) - 1);
                         String finalQuote = content + "\n- " + author;
                         textView.setText(finalQuote);
                     }
@@ -68,5 +78,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public boolean isNew(Quotes q) {
+        if(likeList.contains(q.getQuote())) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 
+    public void addQuote(View view) {
+        Quotes q = new Quotes(content, author);
+        if(isNew(q)) {
+            likeList.add(q.getQuote());
+            editor.putString(author, content);
+            Log.i("added:", ""+likeList.get(count));
+            count++;
+        }
+        else {
+            return;
+        }
+        editor.apply();
+    }
+
+    
 }
+
