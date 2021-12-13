@@ -3,4 +3,5 @@
     <string name="next_quote">Next Quote</string>
     <string name="instructions">Welcome to the Quote Generator!\nClick the button to get started.</string>
     <string name="like">Like</string>
+    <string name="menu">Menu</string>
 </resources>

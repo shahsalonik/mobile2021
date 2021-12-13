@@ -12,17 +12,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
-import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     RequestQueue requestQueue;
-    AppCompatButton button;
+    AppCompatButton nextButton, likeButton;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     String url = "https://api.quotable.io/random";
@@ -48,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text);
-        button = findViewById(R.id.nextButton);
-        List<Quotes> quotes = new ArrayList<>();
+        nextButton = findViewById(R.id.nextButton);
+        likeButton = findViewById(R.id.likeButton);
         requestQueue = Volley.newRequestQueue(this);
         sharedPreferences = getSharedPreferences(TAG, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -101,6 +95,6 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    
+
 }
 
