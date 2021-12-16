@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         menuView = new TextView(this);
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         popupView = inflater.inflate(R.layout.popup_window, null);
-        popupWindow = new PopupWindow(popupView, 100, 100, true);
+        popupWindow = new PopupWindow(popupView, 500, 500, true);
 
         nextButton = findViewById(R.id.nextButton);
         likeButton = findViewById(R.id.likeButton);
