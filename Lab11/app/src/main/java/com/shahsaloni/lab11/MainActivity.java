@@ -4,11 +4,16 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -23,14 +28,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
+    TextView textView, menuView;
+    View popupView;
     RequestQueue requestQueue;
     AppCompatButton nextButton, likeButton;
+    PopupWindow popupWindow;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     String url = "https://api.quotable.io/random";
     String content, author;
-    List<String> likeList = new ArrayList<>();
+    static List<String> likeList = new ArrayList<>();
+
     int count = 0;
 
     String TAG = "com.shahsaloni.lab11";
@@ -42,9 +50,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text);
+        menuView = new TextView(this);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        popupView = inflater.inflate(R.layout.popup_window, null);
+        popupWindow = new PopupWindow(popupView, 100, 100, true);
+
         nextButton = findViewById(R.id.nextButton);
         likeButton = findViewById(R.id.likeButton);
+
         requestQueue = Volley.newRequestQueue(this);
+
         sharedPreferences = getSharedPreferences(TAG, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -70,10 +85,19 @@ public class MainActivity extends AppCompatActivity {
                 requestQueue.add(request);
             }
         });
+
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addQuote(v);
+
+            }
+        });
+
     }
 
-    public boolean isNew(Quotes q) {
-        if(likeList.contains(q.getQuote())) {
+    public boolean isNew(String quote, String author) {
+        if(likeList.contains(quote + " \n- " + author)) {
             return false;
         }
         else {
@@ -82,19 +106,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addQuote(View view) {
-        Quotes q = new Quotes(content, author);
-        if(isNew(q)) {
-            likeList.add(q.getQuote());
+        if(isNew(content, author)) {
+            likeList.add(content + " \n- " + author);
             editor.putString(author, content);
             Log.i("added:", ""+likeList.get(count));
             count++;
         }
         else {
+            popupWindow.showAtLocation(textView, Gravity.CENTER, 10, 10);
+            popupView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    popupWindow.dismiss();
+                    return true;
+                }
+            });
             return;
         }
         editor.apply();
     }
 
+    public void nextPage(View view) {
+        Intent intent = new Intent(getApplicationContext(), Layout1Activity.class);
+        startActivity(intent);
+    }
 
 }
 
