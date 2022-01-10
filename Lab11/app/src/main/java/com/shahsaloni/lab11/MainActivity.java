@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(TAG, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        setInitValues();
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,29 +92,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addQuote(v);
-
             }
         });
 
     }
 
     public boolean isNew(String quote, String author) {
-        if(likeList.contains(quote + " \n- " + author)) {
+        if (likeList.contains(quote + " \n- " + author)) {
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
 
     public void addQuote(View view) {
-        if(isNew(content, author)) {
+        if (isNew(content, author)) {
             likeList.add(content + " \n- " + author);
             editor.putString(author, content);
-            Log.i("added:", ""+likeList.get(count));
+            editor.apply();
+            Log.i("added:", "" + likeList.get(count));
             count++;
-        }
-        else {
+        } else {
             popupWindow.showAtLocation(textView, Gravity.CENTER, 10, 10);
             popupView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             });
             return;
         }
-        editor.apply();
+
     }
 
     public void nextPage(View view) {
@@ -131,5 +131,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setInitValues() {
+        for (int i = 0;; ++i){
+            final String str = sharedPreferences.getString(String.valueOf(i), "");
+            if (!str.equals("")){
+                likeList.add(str);
+            } else {
+                break;
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setInitValues();
+    }
 }
 

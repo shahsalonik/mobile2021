@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/light_pink">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical1"
@@ -39,7 +40,7 @@
         android:layout_height="50dp"
         android:textColor="@color/black"
         android:text="@string/next_quote"
-        android:background="@color/purple_200"
+        android:background="@color/salmon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/vertical1"
         app:layout_constraintRight_toRightOf="@id/vertical2"
@@ -50,10 +51,10 @@
         android:id="@+id/likeButton"
         android:layout_width="50dp"
         android:layout_height="30dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="@string/like"
         android:textSize="11sp"
-        android:background="@color/teal_200"
+        android:background="@color/dark_green"
         android:onClick="addQuote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/vertical1"
@@ -66,7 +67,8 @@
         android:layout_height="60dp"
         android:text="@string/menu"
         android:textSize="13sp"
-        android:background="@color/teal_200"
+        android:textColor="@color/white"
+        android:background="@color/dark_green"
         android:onClick="nextPage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

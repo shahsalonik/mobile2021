@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //The better colors (sorry android)
+    <color name="dark_green">#063630</color>
+    <color name="salmon">#BD6D51</color>
+    <color name="yellow">#D59F33</color>
+    <color name="ochre">#BC834E</color>
+    <color name="light_pink">#E9CFC1</color>
+    <color name="light_gray">#E6D9CB</color>
 </resources>
