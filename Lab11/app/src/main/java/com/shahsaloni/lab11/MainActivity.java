@@ -22,19 +22,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,12 +33,11 @@ public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     AppCompatButton nextButton, likeButton;
     PopupWindow popupWindow;
-    SharedPreferences sharedPreferences;
+    static SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     String url = "https://api.quotable.io/random";
     String content, author;
     static List<String> likeList = new ArrayList<>();
-    JSONArray jsArray = new JSONArray(likeList);
 
 
     int count = 0;
@@ -123,12 +112,9 @@ public class MainActivity extends AppCompatActivity {
             String str = content + " \n- " + author;
             likeList.add(str);
             System.out.println("test size: " + likeList.size());
-            Gson gson = new Gson();
-            String s = gson.toJson(likeList);
-            editor.putString(String.valueOf(count), s);
+            editor.putString(String.valueOf(count), str);
             editor.apply();
             System.out.println("test shared: " + sharedPreferences.getAll().size());
-
             Log.i("added:", "" + likeList.get(count));
             count++;
         } else {
@@ -142,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
             });
             return;
         }
-
     }
 
     public void nextPage(View view) {
@@ -150,18 +135,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Map<String, ?> s = sharedPreferences.getAll();
-
-        for(int x = 0; x < s.size(); x++) {
-            likeList.add(x, (String) s.get(x));
-            menuView.setText(likeList.get(x));
-        }
-
-        Log.d("Restored saved quotes!", "" + sharedPreferences);
-
-    }
 }
 
